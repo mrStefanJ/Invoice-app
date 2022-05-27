@@ -1,0 +1,16 @@
+.navbar{
+    padding: 10px ;
+    background-color: rgb(128, 128, 128);
+}
+
+.navbar-nav{
+    display: flex;
+    flex-direction: row;
+    .nav-item{
+        margin: 0 20px;
+        .nav-link{
+            color: rgb(255, 255, 255);
+            cursor: pointer;
+        }
+    }
+}
