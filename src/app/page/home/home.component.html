@@ -1,0 +1,13 @@
+<mat-sidenav-container
+    class="sidenav-container" (backdropClick)="close('backdrop')">
+  <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose>
+    <app-add-item [inputSideNav]="sidenav"></app-add-item>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <button mat-button (click)="sidenav.open()">Add New Item</button>
+    <app-list-item></app-list-item>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!-- <app-list-item></app-list-item> -->
