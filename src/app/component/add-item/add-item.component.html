@@ -1,0 +1,101 @@
+<form [formGroup]="invoiceForm" (ngSubmit)="onAddInvoice()" novalidate>
+    <div class="form-group" formGroupName="senderAddress">
+        <p>Bill From</p>
+        <div class="form-control">
+            <label>Street Address</label>
+            <input type="text" class="" placeholder="Enter a street" formControlName="street">
+        </div>
+        <div class="form__sub-group">
+            <div class="form-control">
+                <label>City</label>
+                <input type="text" placeholder="Enter a city" formControlName="city">
+            </div>
+            <div class="form-control">
+                <label>Post Code</label>
+                <input type="text" placeholder="Enter a post code" formControlName="postCode">
+            </div>
+            <div class="form-control">
+                <label>Country</label>
+                <input type="text" placeholder="Enter a country" formControlName="country">
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <p>Bill To</p>
+        <div class="form-control">
+            <label for="clientName">Client's Name</label>
+            <input type="text" placeholder="Enter a name" formControlName="clientName">
+        </div>
+        <div class="form-control">
+            <label for="clientEmail">Client's Email</label>
+            <input id="email" type="text" placeholder="Enter a email" formControlName="clientEmail" required>
+            <div *ngIf="invoiceForm.controls['clientEmail'].invalid && invoiceForm.controls['clientEmail'].dirty" class="error-message">
+                <div *ngIf="invoiceForm.controls['clientEmail'].errors?.['required']">
+                    Email required
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <!-- <div class="form-control" formGroupName="clientAddress">
+            <label for="street">Client's Address</label>
+            <input type="text" placeholder="Enter a address" formControlName="street">
+
+            <label>City</label>
+            <input type="text" placeholder="Enter a city" formControlName="city">
+
+            <label>Country</label>
+            <input type="text" placeholder="Enter a country" formControlName="country">
+
+            <label>Post Code</label>
+            <input type="text" placeholder="Enter a post code" formControlName="postCode">
+        </div> -->
+    </div>
+    <div class="form__sub-group">
+        <!-- <label>Invoice Date</label>
+        <input type="date" placeholder="Enter a name" formControlName="paymentDue"> -->
+        <!-- <label>Payment Terms</label>
+        <select formControlName="paymentTerms">
+            <option [value]="30">Net 30 Days</option>
+            <option [value]="60">Net 60 Days</option>
+        </select> -->
+    </div>
+    <!-- <div class="form-control">
+        <label>Project Description</label>
+        <input type="text" placeholder="Enter a project" formControlName="description">
+    </div> -->
+
+    <!--<div class="form-group">
+        <h1>Item List</h1>
+        <button>+ Add Item</button>
+         <table class="item-list">
+            <tr class="table-heading">
+                <th class="item-name">Item Name</th>
+                <th class="qty">Qty</th>
+                <th class="price">Price</th>
+                <th class="total">Total</th>
+            </tr>
+            <tr class="table-item" *ngFor="let item of invoiceItemList">
+                <td class="item-name"><input type="text"></td>
+                <td class="qty"><input type="text"></td>
+                <td class="price"><input type="text"></td>
+                <td class="total"></td>
+            </tr>
+        </table> 
+    </div> -->
+    <div class="error-message" *ngIf="showErrorMessage">
+        <p>- All fields must be filled.</p>
+        <p>- An item must be added.</p>
+      </div>
+    <div class="btn-group">
+        <button mat-button (click)="closeSidenav()" class="btn">Cancel</button>
+        <button mat-button type="submit" class="btn">Add</button>
+        <!-- <button mat-button type="submit" class="btn">Create Invoice</button> -->
+    </div>
+</form>
+<div class="results">
+    <h2>Form Data</h2>
+
+</div>
