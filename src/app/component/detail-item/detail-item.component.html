@@ -1,5 +1,24 @@
-<div class="container">
-    <div class="card" >
-        <button>Delete</button>
+<mat-sidenav-container
+    class="sidenav-container" (backdropClick)="close('backdrop')">
+  <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose>
+    <app-edit-employee [inputSideNav]="sidenav"></app-edit-employee>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div class="card-employee">
+      <div class="card-header">
+        <button mat-button (click)="sidenav.open()">+ Edit</button>
+        <button mat-button (click)="removeEmployee()">Delete</button>
+      </div>
+      <div class="card-info">
+      <div class="employee--info">
+        {{ dataEmployee?.clientName.stringValue }}
+        {{ dataEmployee?.clientEmail.stringValue }}
+        {{ dataEmployee?.country.stringValue }}
+        {{ dataEmployee?.city.stringValue }}
+        {{ dataEmployee?.street.stringValue }}
+      </div>
+      </div>
     </div>
-</div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
