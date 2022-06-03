@@ -1,13 +1,30 @@
-<button class="btn" routerLink="/create">Create</button>
-<ul>
-    <li class="item" *ngFor="let item of dataItems">
-        <a class="item-link" [routerLink]="['/detail-item/', item.id]" routerLinkActive="router-link-active">
-            <div class="item-card">
-                <p>{{ item.country}}</p>
-                <p>{{ item.city}}</p>
-                <p>{{ item.clientName }}</p>
-                <p>{{ item.street}} - {{ item.postCode }}</p>
-            </div>
-        </a>
-    </li>
-</ul>
+<div *ngIf="employee">
+    <div *ngIf="employee?.length > 0">
+        <div class="total">
+            <h1>Invoices</h1>
+            <p>There are {{ employee?.length }} total invoices</p>
+        </div>
+        <ul>
+            <li class="item" *ngFor="let item of employee">
+                <div class="item-card">
+                    <div class="two-column">
+                        <div class="column-first flex">
+                            <p class="payment">{{ item.paymentDue }}</p>
+                            <p class="name">{{ item.clientName }}</p>
+                        </div>
+                        <div class="column-second flex">
+                            <p class="street">{{ item.city }}</p>
+                            <p class="payment">{{ item.paymentDue }}</p>
+                            <p class="post">{{ item.postCode }}</p>
+                        </div>
+                    </div>
+                    <a class="item-link" [routerLink]="['/detail-item/', item.id]">to Employee</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div *ngIf="employee.length === 0">
+    <h1>There is no data</h1>
+</div>

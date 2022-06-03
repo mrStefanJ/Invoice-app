@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { EmployeeService } from 'src/app/service/employee.service';
 
 @Component({
@@ -8,7 +7,7 @@ import { EmployeeService } from 'src/app/service/employee.service';
 })
 export class ListItemComponent implements OnInit {
 
-  dataItems: any = [];
+  employee: any[] = [];
 
   constructor(
     private employeeService: EmployeeService
@@ -19,15 +18,17 @@ export class ListItemComponent implements OnInit {
   }
 
   getItems(){
-    this.employeeService.getAllData().subscribe(data => {
-      this.dataItems = [];
-      data.forEach((ele:any) => {
-        this.dataItems.push({
+    this.employeeService.getAllEmployee().subscribe(data => {
+      this.employee = [];
+      data.forEach((ele: any) => {
+        this.employee.push({
           id: ele.payload.doc.id,
           ...ele.payload.doc.data()
         })
-      });
-      console.log(this.dataItems);
-    })
+        console.log(ele.payload.doc.id)
+        console.log(ele.payload.doc.data())
+      })
+    });
+    console.log(this.employee);
   }
 }
