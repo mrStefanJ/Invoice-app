@@ -1,0 +1,38 @@
+.error-message{
+    color: $red;
+    font-size: 18px;
+}
+.container-form{
+    padding: 10px;
+    @include md {
+        padding: 50px;
+    }
+}
+
+input[type=text] {
+    width: 170px;
+    padding: 10px;
+}
+
+.form-group{
+    .form-control {
+        label{
+            margin: 0;
+        }
+    }
+    .form__sub-group{
+        display: flex;
+        flex-direction: column;
+        .form-control{
+            display: flex;
+            flex-direction: column;
+            .input-group{
+                width: 110px;
+                padding: 10px;
+            }
+        }
+        @include md(){
+            flex-direction: row;
+        }
+    }
+}

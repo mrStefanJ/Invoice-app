@@ -1,0 +1,58 @@
+ul {
+    .item
+    {
+        width: auto;
+        margin: 30px;
+        .item-card{
+            .two-column{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                flex-wrap: nowrap;
+                .column-first{
+                    width: 100%;
+                    .id{
+                        width: 4.4pc;
+                        overflow: hidden;
+                        text-overflow: clip; 
+                        white-space: nowrap;
+                        text-transform: uppercase;
+                    }
+                    .payment{
+                        display: block;
+                        @include md {
+                            display: none;
+                        }
+                    }
+                    @include md {
+                        p{
+                            margin-right: 40px;
+                        }
+                    }
+                }
+                .column-second{
+                    width: 100%;
+                    .payment{
+                        display: none;
+                        @include md {
+                            display: block;
+                        }
+                    }
+                    @include md {
+                        p{
+                            margin-right: 40px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.flex{
+    display: flex;
+    flex-direction: column;
+    @include md {
+        flex-direction: row;
+    }
+}

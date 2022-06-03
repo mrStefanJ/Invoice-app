@@ -1,3 +1,16 @@
 .mat-drawer-container{
     height: 897px;
 }
+
+.item{
+    width: 200px;
+    padding: 20px;
+    border: 1px solid grey;
+    border-radius: 20px;
+    .item-link{
+        cursor: pointer;
+    }
+    .item-card > p{
+        color: black;
+    }
+}
